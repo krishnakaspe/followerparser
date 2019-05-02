@@ -30,6 +30,8 @@ def followers(name):
 
 @app.route('/<user_id>')
 def main(user_id) :
+    if user_id == None :
+        return jsonify({"errmsg" : "not found"})
     print(user_id)
     return jsonify(followers(user_id)) 
 
