@@ -27,7 +27,7 @@ def followers(name):
 
 
 @app.route('/')
-def ret :
+def ret():
     return jsonify({"errmsg" : "not found"})
 
 @app.route('/<user_id>')
