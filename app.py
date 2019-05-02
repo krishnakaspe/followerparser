@@ -14,14 +14,12 @@ app = Flask(__name__)
 def followers(name):
 
     ku=requests.get("http://www.instagram.com/"+str(name))
-    soup = BeautifulSoup(ku.text, 'html.parser')
-
-    data=soup.find_all('meta',attrs={'property':'og:description'})
-
-    mon=data[0].get('content').split()
-    if mon==None:
-        return 'cannot find'
-    else:
+    if ku.status_code != 200 :
+        return {"errmsg" : "not found"}
+    else :    
+        soup = BeautifulSoup(ku.text, 'html.parser')
+        data=soup.find_all('meta',attrs={'property':'og:description'})
+        mon=data[0].get('content').split()
         return {'followers':mon[0],'posts':mon[2],'following':mon[4]}
 
 
