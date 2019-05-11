@@ -20,7 +20,7 @@ def followers(name):
         soup = BeautifulSoup(ku.text, 'html.parser')
         data=soup.find_all('meta',attrs={'property':'og:description'})
         mon=data[0].get('content').split()
-        return {'followers':mon[0],'posts':mon[2],'following':mon[4]}
+        return {'errmsg' :'success' , 'followers':mon[0],'posts':mon[4],'following':mon[2]}
 
 
 
