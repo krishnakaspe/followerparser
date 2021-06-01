@@ -1,6 +1,6 @@
 requests
 Flask==1.0.2
 Jinja2==2.10
-urllib3==1.24.1
+urllib3==1.26.5
 gunicorn
 beautifulsoup4==4.7.1
